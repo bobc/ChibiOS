@@ -135,6 +135,14 @@ void dbg_check_lock_from_isr(void) {
   dbg_enter_lock();
 }
 
+int dbg_is_isr(void) {
+
+  if ((dbg_isr_cnt <= 0))
+    return 0;
+  else 
+    return 1;
+}
+
 /**
  * @brief   Guard code for @p chSysUnlockFromIsr().
  *
