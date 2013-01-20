@@ -185,9 +185,11 @@ endif
 %.hex: %.elf $(LDSCRIPT)
 ifeq ($(USE_VERBOSE_COMPILE),yes)
 	$(HEX) $< $@
+	$(SIZE) $<
 else
 	@echo Creating $@
 	@$(HEX) $< $@
+	$(SIZE) $<
 endif
 
 %.bin: %.elf $(LDSCRIPT)
